@@ -1,0 +1,15 @@
+.authOptions {
+  display: flex;
+  height: 100%;
+}
+
+.authOptions__option {
+  background-color: #b91b1b;
+  padding: 0 1rem;
+  color: #ffffff;
+  font-size: 0.8rem;
+}
+
+.authOptions__option:hover {
+  background-color: #be3a3a;
+}
