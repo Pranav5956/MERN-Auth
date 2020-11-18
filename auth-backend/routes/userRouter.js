@@ -89,7 +89,6 @@ router.post("/login", async (req, res) => {
       user: {
         id: user._id,
         displayName: user.displayName,
-        email: user.email,
       },
       token: token,
     });
@@ -101,7 +100,9 @@ router.post("/login", async (req, res) => {
 router.delete("/delete", auth, async (req, res) => {
   try {
     const deleteUser = await UserModel.findByIdAndDelete(req.user);
-    res.status(200).json({ user: deleteUser });
+    res
+      .status(200)
+      .json({ message: "Account deletion successful!", user: deleteUser });
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
@@ -111,22 +112,36 @@ router.post("/valid", async (req, res) => {
   try {
     const token = req.header("x-auth-token");
     if (!token) {
-      return res.status(401).json({ valid: false });
+      return res.status(200).json({ tokenValid: false });
     }
 
     const verified = jwt.verify(token, process.env.REACT_APP_JWT_SECRET);
     if (!verified) {
-      return res.status(401).json({ valid: false });
+      return res.status(200).json({ tokenValid: false });
     }
 
     const user = await UserModel.findById(verified.id);
     if (!user) {
-      return res.status(401).json({ valid: false });
+      return res.status(200).json({ tokenValid: false });
     }
 
-    res.status(200).json({ valid: true });
+    res.status(200).json({ tokenValid: true });
   } catch (err) {
     res.status(500).json({ error: err.message });
+  }
+});
+
+router.get("/data", auth, async (req, res) => {
+  try {
+    const user = await UserModel.findById(req.user);
+    res.status(200).json({
+      user: {
+        id: user._id,
+        displayName: user.displayName,
+      },
+    });
+  } catch (err) {
+    res.status(500).json(err.message);
   }
 });
 

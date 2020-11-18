@@ -12,7 +12,7 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-app.use("/users", userRoute);
+app.use("/api/user", userRoute);
 
 // Server
 const port = process.env.PORT || 5000;

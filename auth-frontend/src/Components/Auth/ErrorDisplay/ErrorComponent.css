@@ -1,0 +1,24 @@
+.error {
+  border: 1px solid #e07c7c;
+  padding: 0.5rem;
+  border-radius: 8px;
+  background-color: #f8d6d6;
+  margin: 1rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.error__message {
+  color: #d41a1a;
+}
+
+.error__close {
+  color: gray;
+  cursor: pointer;
+  font-size: 1.1rem;
+}
+
+.error__close:hover {
+  color: black;
+}

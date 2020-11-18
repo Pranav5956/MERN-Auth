@@ -1,0 +1,41 @@
+.login {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.login__header {
+  padding: 1rem;
+}
+
+.login__input,
+.login__label {
+  display: block;
+}
+
+.login__input {
+  margin: 1rem;
+  width: 100%;
+  font-size: 1.1rem;
+  padding: 0.3rem;
+  border: 1px solid #c2c2c2;
+  background-color: #f0f0f0;
+  border-radius: 8px;
+}
+
+.login__input:focus {
+  outline: none;
+  border: 1px solid #50a4e9;
+  box-shadow: inset 0px 0px 5px rgba(38, 142, 228, 0.5);
+}
+
+.login__label {
+  margin-bottom: 0.2rem;
+}
+
+.login__button {
+  padding: 0.3rem 0.5rem;
+  border: 1px solid #6aa051;
+  border-radius: 8px;
+  background-color: #c8ecb7;
+  font-size: 1.1rem;
+}
